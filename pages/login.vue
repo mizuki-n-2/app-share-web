@@ -23,6 +23,7 @@
             label="パスワード"
             hint="8文字以上30文字以下にしてください"
             counter
+            required
             @click:append="showPassword = !showPassword"
           ></v-text-field>
         </v-card-text>
@@ -53,7 +54,6 @@ export default Vue.extend({
       email: '',
       password: '',
       showPassword: false,
-      formHasErrors: false,
       rules: {
         required: (value: string) => !!value || '必須入力項目です',
         emailValid: (value: string) => /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value) || 'メールアドレスの形式が正しくありません',
