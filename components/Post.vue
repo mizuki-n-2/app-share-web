@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="360">
+  <v-card max-width="360" @click="goToDetail">
     <v-img :src="post.appImage" height="160px"></v-img>
 
     <v-card-title>
@@ -49,6 +49,11 @@ export default Vue.extend({
     post: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    goToDetail() {
+      this.$router.push({ path: `/posts/${this.post.id}` })
     },
   },
 })
