@@ -34,9 +34,9 @@
 
         <v-row align="center" justify="end">
           <v-icon class="mr-1"> mdi-thumb-up-outline </v-icon>
-          <span class="subheading mr-2">{{ post.likeCount }}</span>
+          <span class="subheading mr-2">{{ post.likesCount }}</span>
           <v-icon class="mr-1"> mdi-comment-multiple-outline </v-icon>
-          <span class="subheading mr-2">{{ post.commentCount }}</span>
+          <span class="subheading mr-2">{{ post.commentsCount }}</span>
         </v-row>
       </v-list-item>
     </v-card-actions>
