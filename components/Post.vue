@@ -1,22 +1,29 @@
 <template>
-  <v-card max-width="340">
-    <v-img :src="post.appImage" height="180px"></v-img>
+  <v-card max-width="360">
+    <v-img
+      :src="post.appImage"
+      class="white--text align-end"
+      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+      height="160px"
+    >
+      <v-card-title class="text-h5" v-text="post.title"></v-card-title>
+    </v-img>
 
-    <v-card-title>
-      <v-icon large left color="success"> mdi-check-all </v-icon>
-      <span class="text-h6">{{ post.title }}</span>
-    </v-card-title>
-
-    <v-card-text>
-      <v-chip-group>
-        <v-chip v-for="(tag, index) in post.tags" :key="index" color="info">
+    <v-card-text class="py-0">
+      <v-chip-group column>
+        <v-chip
+          v-for="(tag, index) in post.tags"
+          :key="index"
+          color="info"
+          outlined
+        >
           {{ tag }}
         </v-chip>
       </v-chip-group>
     </v-card-text>
 
-    <v-card-actions>
-      <v-list-item class="grow">
+    <v-card-actions class="px-0 py-0">
+      <v-list-item>
         <v-list-item-avatar color="grey darken-3">
           <v-img class="elevation-6" alt="" :src="post.user.icon"></v-img>
         </v-list-item-avatar>
@@ -29,7 +36,7 @@
           <v-icon class="mr-1"> mdi-thumb-up-outline </v-icon>
           <span class="subheading mr-2">{{ post.likeCount }}</span>
           <v-icon class="mr-1"> mdi-comment-multiple-outline </v-icon>
-          <span class="subheading">{{ post.commentCount }}</span>
+          <span class="subheading mr-2">{{ post.commentCount }}</span>
         </v-row>
       </v-list-item>
     </v-card-actions>
@@ -40,23 +47,11 @@
 import Vue from 'vue'
 export default Vue.extend({
   name: 'Post',
-  data() {
-    return {
-      post: {
-        id: 1,
-        title: 'App Share',
-        appImage: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-        tags: ['Go', 'Vue', 'MySQL'],
-        updated_at: '2019-01-01',
-        user: {
-          id: 1,
-          name: '浦島太郎',
-          icon: 'https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light',
-        },
-        likeCount: 256,
-        commentCount: 45,
-      },
-    }
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
   },
 })
 </script>
