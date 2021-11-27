@@ -2,7 +2,23 @@
   <v-container>
     <v-row class="d-flex">
       <v-col class="left" cols="8">
-        <v-row class="d-flex">
+        <p class="font-italic">あなたが作ったアプリを共有しよう！</p>
+        <div class="d-flex justify-end">
+          <v-toolbar flat max-width="400px">
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="検索"
+              single-line
+            ></v-text-field>
+          </v-toolbar>
+        </div>
+
+        <v-tabs>
+          <v-tab>新着順</v-tab>
+          <v-tab>人気順</v-tab>
+        </v-tabs>
+        <v-row class="d-flex mt-2">
           <v-col v-for="post in posts" :key="post.id" cols="6">
             <Post :post="post" class="mx-auto" />
           </v-col>

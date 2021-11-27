@@ -89,7 +89,7 @@ export default {
       leftItems: [
         {
           icon: 'mdi-apps',
-          title: 'アプリ一覧',
+          title: 'ホーム',
           to: '/'
         },
         {
