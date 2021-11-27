@@ -1,13 +1,11 @@
 <template>
   <v-card max-width="360">
-    <v-img
-      :src="post.appImage"
-      class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-      height="160px"
-    >
-      <v-card-title class="text-h5" v-text="post.title"></v-card-title>
-    </v-img>
+    <v-img :src="post.appImage" height="160px"></v-img>
+
+    <v-card-title>
+      <v-icon large left color="blue-grey"> mdi-cube </v-icon>
+      <span class="text-h6">{{ post.title }}</span>
+    </v-card-title>
 
     <v-card-text class="py-0">
       <v-chip-group column>
